@@ -271,14 +271,14 @@ footer {
 }
 
 /* ---------------------------------------------------- */
-/* 7. ESTILOS WHATSAPP (Novo Bloco de Correção) */
+/* 7. ESTILOS WHATSAPP (Bloco de Correção) */
 /* ---------------------------------------------------- */
 
 /* Sobrescreve a cor de fundo do .cta-button para verde WhatsApp (topo e seções) */
 .cta-button.whatsapp {
     background-color: #25d366; 
     border-color: #25d366;
-    color: #1a1a1a; /* Deixando a cor do texto escura para contraste com o verde */
+    color: #1a1a1a; 
 }
 
 .cta-button.whatsapp:hover {
@@ -300,9 +300,9 @@ footer {
     color: white;
 }
 
-/* Estilo para links de contato (texto) dentro dos cards de evento (Ex: onde está o número de telefone) */
+/* Estilo para links de contato (texto) dentro dos cards de evento */
 .whatsapp-link {
-    color: #25d366; /* Verde WhatsApp no texto */
+    color: #25d366; 
     text-decoration: none;
     font-weight: 600;
 }
@@ -310,13 +310,16 @@ footer {
 .whatsapp-link:hover {
     text-decoration: underline;
 }
+
 /* ---------------------------------------------------- */
-/* 8. ESTILOS DO CARROSSEL DE VÍDEOS */
+/* 8. ESTILOS DO CARROSSEL DE VÍDEOS (CORRIGIDO TAMANHO) */
 /* ---------------------------------------------------- */
 .video-carousel {
+    /* Limita o contêiner do carrossel para que não ocupe toda a largura do card */
+    max-width: 500px; 
+    /* Centraliza o carrossel dentro do card */
+    margin: 20px auto; 
     position: relative;
-    max-width: 100%;
-    margin: 20px 0;
     border-radius: 8px;
     overflow: hidden;
     background-color: #000;
@@ -325,15 +328,25 @@ footer {
 
 .carousel-item {
     display: none; /* Esconde todos os itens por padrão */
+    /* Garante que o item ocupe 100% da largura do contêiner (500px) */
+    width: 100%;
+    /* Adiciona um padding-top para simular uma proporção de vídeo 16:9 (altura = 56.25% da largura) */
+    padding-top: 56.25%; 
+    position: relative;
 }
 
 .carousel-item.active {
     display: block; /* Mostra apenas o item ativo */
 }
 
+/* A tag de vídeo ocupa o espaço exato do .carousel-item */
 .video-carousel video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover; /* Garante que o vídeo preencha o espaço sem distorcer muito */
     display: block;
 }
 

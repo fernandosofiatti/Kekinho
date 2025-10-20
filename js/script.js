@@ -1,49 +1,69 @@
 // VARIÁVEIS GLOBAIS
 let slideIndex = 0; // Índice inicial do carrossel Tavares
+const CAROUSEL_ID = 'carouselTavares';
 
-// FUNÇÃO PARA MOSTRAR OS VÍDEOS
-function showSlides() {
-    let i;
-    // Pega todos os itens do carrossel da Expedição Tavares
-    let slides = document.getElementById("carouselTavares").getElementsByClassName("carousel-item");
-    
-    // Se não houver slides, a função para
+// FUNÇÃO PRINCIPAL PARA MOSTRAR OS SLIDES
+function showSlides(n) {
+    let carousel = document.getElementById(CAROUSEL_ID);
+    if (!carousel) return; // Sai se o carrossel não existir (segurança)
+
+    let slides = carousel.getElementsByClassName("carousel-item");
     if (slides.length === 0) return;
 
-    // Reseta o slideIndex se for maior que o número de slides
+    // Atualiza o slideIndex com base na direção (n = 1 ou n = -1)
+    if (n !== undefined) {
+        slideIndex += n;
+    }
+    
+    // Lógica de loop: se passar do fim, volta para o início; se voltar do início, vai para o fim
     if (slideIndex >= slides.length) { 
-        slideIndex = 0; // Volta para o primeiro vídeo
+        slideIndex = 0; 
     }    
-    // Reseta o slideIndex se for menor que 0
     if (slideIndex < 0) {
-        slideIndex = slides.length - 1; // Vai para o último vídeo
+        slideIndex = slides.length - 1; 
     }
 
-    // Esconde todos os vídeos
-    for (i = 0; i < slides.length; i++) {
+    // 1. Esconde todos os vídeos e pausa a reprodução
+    for (let i = 0; i < slides.length; i++) {
         slides[i].classList.remove('active');
-        // Pausa o vídeo antes de mudar
-        slides[i].querySelector('video').pause();
+        let video = slides[i].querySelector('video');
+        if (video) {
+            video.pause();
+            // Volta o vídeo para o início ao pausar, para a próxima vez que ele for exibido
+            video.currentTime = 0;
+        }
     }
 
-    // Mostra o vídeo atual e o coloca para rodar
+    // 2. Mostra o vídeo atual e inicia a reprodução
     slides[slideIndex].classList.add('active');
-    slides[slideIndex].querySelector('video').play();
+    let currentVideo = slides[slideIndex].querySelector('video');
+    if (currentVideo) {
+        currentVideo.play();
+    }
 }
 
-// FUNÇÃO CHAMADA PELO BOTÃO NEXT
-function nextVideo() {
-    slideIndex++;
-    showSlides();
+// FUNÇÃO QUE ADICIONA ESCUTADORES DE EVENTOS AOS BOTÕES
+function setupCarouselControls() {
+    let carousel = document.getElementById(CAROUSEL_ID);
+    if (!carousel) return;
+
+    // Adiciona o escutador de evento para todos os botões no container
+    carousel.querySelector('.carousel-controls').addEventListener('click', function(event) {
+        let button = event.target.closest('button');
+        if (button) {
+            let direction = parseInt(button.getAttribute('data-direction'));
+            if (!isNaN(direction)) {
+                showSlides(direction);
+            }
+        }
+    });
 }
 
-// FUNÇÃO CHAMADA PELO BOTÃO PREV
-function prevVideo() {
-    slideIndex--;
-    showSlides();
-}
 
 // Inicializa o carrossel quando a página carregar
-document.addEventListener('DOMContentLoaded', (event) => {
-    showSlides(); 
+document.addEventListener('DOMContentLoaded', () => {
+    // Inicializa o carrossel (n = 0 para mostrar o primeiro sem mudar o índice)
+    showSlides(0); 
+    // Configura a lógica de clique dos botões
+    setupCarouselControls();
 });
