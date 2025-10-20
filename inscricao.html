@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição - KEKINHO NA DÚVIDA ACELERA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para o formulário */
+        .form-container {
+            background-color: #2c2c2c;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            margin: 50px auto;
+            border-left: 5px solid #ffc107;
+        }
+        .form-container h2 {
+            color: #ffc107;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #f4f4f4;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+            box-sizing: border-box; /* Garante que padding não aumente a largura total */
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .submit-button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header style="padding: 40px 0;">
+        <div class="container" style="text-align: center;">
+            <h1>KEKINHO NA DÚVIDA ACELERA</h1>
+            <p style="color: #ffc107;">FORMULÁRIO DE INSCRIÇÃO PARA EVENTOS</p>
+            <a href="index.html" class="btn-detalhes" style="margin-top: 10px;">Voltar para o Início</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <h2>INSCRIÇÃO DE TRILHEIRO</h2>
+            
+            <form action="mailto:fernando.sofiatti@gmail.com" method="post" enctype="text/plain">
+                
+                <div class="form-group">
+                    <label for="evento">Evento Desejado:</label>
+                    <select id="evento" name="Evento" required>
+                        <option value="">-- Selecione o Evento --</option>
+                        <option value="Serra da Canastra">Expedição Serra da Canastra</option>
+                        <option value="Tavares">Expedição Tavares</option>
+                        <option value="Cananeia">Expedição Cananéia</option>
+                        <option value="Ovelhama 2025">Encontro Ovelhama 2025</option>
+                        <option value="Trilha da Tainha 2025">Encontro Trilha da Tainha 2025</option>
+                        <option value="Piraonalama 2025">Encontro Pirãonalama 2025</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="Nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="Email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone / WhatsApp:</label>
+                    <input type="tel" id="telefone" name="Telefone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="veiculo">Veículo (Marca/Modelo/Ano):</label>
+                    <input type="text" id="veiculo" name="Veiculo">
+                </div>
+                
+                <div class="form-group">
+                    <label for="mensagem">Mensagem / Dúvidas:</label>
+                    <textarea id="mensagem" name="Mensagem"></textarea>
+                </div>
+
+                <button type="submit" class="cta-button submit-button">ENVIAR SOLICITAÇÃO DE INSCRIÇÃO</button>
+            </form>
+            <p style="text-align: center; font-size: 0.8em; margin-top: 20px; color: #aaa;">Ao enviar, será aberta uma janela do seu aplicativo de e-mail.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 KEKINHO NA DÚVIDA ACELERA. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
