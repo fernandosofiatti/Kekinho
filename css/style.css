@@ -4,6 +4,7 @@
 /* --text-light: #f4f4f4; (Texto claro) */
 /* --section-dark: #2c2c2c; (Fundo de seção escuro) */
 /* --border-gray: #444; */
+/* --whatsapp-green: #25d366; (Novo para o botão) */
 
 /* Importação das Fontes (Adicionei no HTML, mas deixo a menção) */
 /* font-family: 'Oswald', sans-serif; (Titulos) */
@@ -267,4 +268,45 @@ footer {
     .event-grid, .service-list {
         grid-template-columns: 1fr;
     }
+}
+
+/* ---------------------------------------------------- */
+/* 7. ESTILOS WHATSAPP (Novo Bloco de Correção) */
+/* ---------------------------------------------------- */
+
+/* Sobrescreve a cor de fundo do .cta-button para verde WhatsApp (topo e seções) */
+.cta-button.whatsapp {
+    background-color: #25d366; 
+    border-color: #25d366;
+    color: #1a1a1a; /* Deixando a cor do texto escura para contraste com o verde */
+}
+
+.cta-button.whatsapp:hover {
+    background-color: #128c7e;
+    border-color: #128c7e;
+    transform: translateY(-2px); 
+}
+
+/* Sobrescreve a cor de fundo do .btn-detalhes para verde WhatsApp (dentro dos cards) */
+.btn-detalhes.whatsapp {
+    background-color: #25d366;
+    border-color: #25d366;
+    color: white; 
+}
+
+.btn-detalhes.whatsapp:hover {
+    background-color: #128c7e;
+    border-color: #128c7e;
+    color: white;
+}
+
+/* Estilo para links de contato (texto) dentro dos cards de evento (Ex: onde está o número de telefone) */
+.whatsapp-link {
+    color: #25d366; /* Verde WhatsApp no texto */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.whatsapp-link:hover {
+    text-decoration: underline;
 }
