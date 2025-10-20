@@ -310,3 +310,55 @@ footer {
 .whatsapp-link:hover {
     text-decoration: underline;
 }
+/* ---------------------------------------------------- */
+/* 8. ESTILOS DO CARROSSEL DE VÍDEOS */
+/* ---------------------------------------------------- */
+.video-carousel {
+    position: relative;
+    max-width: 100%;
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-item {
+    display: none; /* Esconde todos os itens por padrão */
+}
+
+.carousel-item.active {
+    display: block; /* Mostra apenas o item ativo */
+}
+
+.video-carousel video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 10px;
+    z-index: 10;
+}
+
+.carousel-controls button {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5em;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.carousel-controls button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
